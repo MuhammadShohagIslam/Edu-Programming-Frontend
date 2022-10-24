@@ -1,7 +1,27 @@
+import { Routes, Route } from "react-router-dom";
 import "./App.css";
+import Blog from "./pages/Blog/Blog";
+import Courses from "./pages/Courses/Courses";
+import FAQ from "./pages/FAQ/FAQ";
+import Home from "./pages/Home/Home";
+import Login from "./pages/Login/Login";
+import Profile from "./pages/Profile/Profile";
+import Register from "./pages/Register/Register";
 
 function App() {
-    return <div className="App"></div>;
+    return (
+        <>
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/courses" element={<Courses />} />
+                <Route path="/blog" element={<Blog />} />
+                <Route path="/faq" element={<FAQ />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/register" element={<Register />} />
+                <Route path="/profile" element={<Profile />} />
+            </Routes>
+        </>
+    );
 }
 
 export default App;
