@@ -12,13 +12,13 @@ import { useParams } from "react-router-dom";
 import Jumbotron from "../../../components/shared/Jumbotron/Jumbotron";
 import useFetch from "../../../hooks/useFetch";
 import Layout from "../../../layout/Layout";
+import CustomButton from "../../../components/UI/CustomButton/CustomButton";
 
 const CourseDetails = () => {
     const { id } = useParams();
     const { data, loading } = useFetch("http://localhost:5000/courses", id);
 
     const { img, name, description, intro, overview } = data;
-
     return (
         <Layout>
             {loading ? (
@@ -67,6 +67,7 @@ const CourseDetails = () => {
                                         className="img-fluid"
                                     />
                                 </Card>
+                                <CustomButton id={id} />
                             </Col>
                         </Row>
                     </Container>

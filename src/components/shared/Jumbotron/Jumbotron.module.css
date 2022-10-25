@@ -42,28 +42,7 @@
     position: relative;
     z-index: 10;
 }
-.courseCardButtonWrapper {
-    display: flex;
-    width: 100%;
-    margin-top: 10px;
-    justify-content: center;
-    position: relative;
-    z-index: 10;
-}
-.courseCardButton {
-    background-color: #fff !important;
-    border: none !important;
-    color: #191c36 !important;
-    font-size: 19px !important;
-    border: 1px solid #fff !important;
-    transition: all 0.4s !important;
-    font-weight: 500 !important;
-    padding: 10px 30px !important;
-}
-.courseCardButton:hover {
-    background-color: transparent !important;
-    color: #fff !important;
-}
+
 /* Start Small Devices */
 @media only screen and (max-width: 767px) {
     .jumbotron {

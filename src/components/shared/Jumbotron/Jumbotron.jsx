@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Button } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import classes from "./Jumbotron.module.css";
 
 const Jumbotron = ({ name, intro }) => {
@@ -10,15 +10,6 @@ const Jumbotron = ({ name, intro }) => {
                     <h2 className={classes.jumbotronTitle}>{name}</h2>
                     {intro && (
                         <p className={classes.jumbotronDescription}>{intro}</p>
-                    )}
-                    {intro && (
-                        <div
-                            className={`${classes.courseCardButtonWrapper} pt-2`}
-                        >
-                            <Button className={classes.courseCardButton}>
-                                Premium Access
-                            </Button>
-                        </div>
                     )}
                 </div>
             </Container>

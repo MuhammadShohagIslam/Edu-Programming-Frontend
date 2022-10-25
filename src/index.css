@@ -8,7 +8,7 @@ div#root {
     height: 100% !important;
 }
 main {
-    min-height: 100% !important;
+    height: 100% !important;
     position: relative !important;
 }
 li {
@@ -54,5 +54,3 @@ footer {
 .nav-link {
     color: #000 !important;
 }
-   
-
