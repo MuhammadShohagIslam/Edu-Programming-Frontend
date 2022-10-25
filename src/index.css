@@ -4,6 +4,13 @@ body {
     box-sizing: border-box;
     background-color: #000 !important;
 }
+div#root {
+    height: 100% !important;
+}
+main {
+    min-height: 100% !important;
+    position: relative !important;
+}
 li {
     list-style-type: none;
 }
@@ -39,4 +46,8 @@ a {
 .swiper-pagination-bullet-active {
     background: #fff !important;
     opacity: 1 !important;
+}
+footer {
+    position: absolute;
+    width: 100%;
 }

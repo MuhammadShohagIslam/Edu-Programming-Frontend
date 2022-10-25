@@ -1,0 +1,45 @@
+.jumbotron {
+    background-image: url("../../../images/jumbotron1.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 200px;
+    position: relative;
+}
+.jumbotron::after {
+   position: absolute;
+   content: "";
+   background-color: #000;
+   opacity: .7;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+}
+.jumbotronWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+.jumbotronTitle {
+    font-size: 36px;
+    color: #fff;
+    font-weight: 600;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+}
+/* Start Small Devices */
+@media only screen and (max-width: 767px) {
+    .jumbotron {
+        height: 200px;
+    }
+    .jumbotronTitle {
+        font-size: 24px;
+        width: 270px;
+    }
+} /* End Small Devices */
+
+

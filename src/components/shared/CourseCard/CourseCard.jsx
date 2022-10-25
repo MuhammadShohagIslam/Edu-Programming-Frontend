@@ -6,7 +6,7 @@ import classes from "./CourseCard.module.css";
 
 const CourseCard = ({ course }) => {
     const { id, img, name, description } = course;
-    console.log(course, name, "course");
+    
     return (
         <>
             <Col lg={4} md={6} sm={12} className="mb-4 w-100">
