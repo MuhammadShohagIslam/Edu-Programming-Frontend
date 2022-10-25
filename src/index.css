@@ -51,3 +51,8 @@ footer {
     position: absolute;
     width: 100%;
 }
+.nav-link {
+    color: #000 !important;
+}
+   
+

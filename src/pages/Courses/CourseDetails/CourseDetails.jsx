@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import {
     Container,
     Row,
@@ -9,24 +9,15 @@ import {
     ListGroup,
 } from "react-bootstrap";
 import { useParams } from "react-router-dom";
-import CourseDetailsJumbotron from "../../../components/shared/CourseDetailsJumbotron/CourseDetailsJumbotron";
+import Jumbotron from "../../../components/shared/Jumbotron/Jumbotron";
+import useFetch from "../../../hooks/useFetch";
 import Layout from "../../../layout/Layout";
 
 const CourseDetails = () => {
-    const [course, setCourse] = useState();
-    const [loading, setLoading] = useState(true);
     const { id } = useParams();
+    const { data, loading } = useFetch("http://localhost:5000/courses", id);
 
-    useEffect(() => {
-        setLoading(true);
-        const fetchCourse = async () => {
-            const response = await fetch(`http://localhost:5000/courses/${id}`);
-            const data = await response.json();
-            setCourse(data);
-            setLoading(false);
-        };
-        fetchCourse();
-    }, [id]);
+    const { img, name, description, intro, overview } = data;
 
     return (
         <Layout>
@@ -34,15 +25,12 @@ const CourseDetails = () => {
                 <h3 className="text-white text-center">Loading...</h3>
             ) : (
                 <>
-                    <CourseDetailsJumbotron
-                        name={course.name}
-                        description={course.description}
-                    />
+                    <Jumbotron name={name} intro={intro} />
                     <Container className="mt-5">
                         <Row>
                             <Col lg={8} md={6} sm={12} className="mb-4">
                                 <Card className="p-4">
-                                    <Card.Title> {course.name}</Card.Title>
+                                    <Card.Title> {name}</Card.Title>
                                     <Tabs
                                         defaultActiveKey="overview"
                                         id="uncontrolled-tab-example"
@@ -53,22 +41,18 @@ const CourseDetails = () => {
                                             title="Overview"
                                         >
                                             <ListGroup>
-                                                {course.overview.map(
-                                                    (ov, index) => (
-                                                        <ListGroup.Item
-                                                            key={index}
-                                                        >
-                                                            {ov}
-                                                        </ListGroup.Item>
-                                                    )
-                                                )}
+                                                {overview.map((ov, index) => (
+                                                    <ListGroup.Item key={index}>
+                                                        {ov}
+                                                    </ListGroup.Item>
+                                                ))}
                                             </ListGroup>
                                         </Tab>
                                         <Tab
                                             eventKey="description"
                                             title="Description"
                                         >
-                                            {course.description}
+                                            {description}
                                         </Tab>
                                     </Tabs>
                                 </Card>
@@ -77,8 +61,8 @@ const CourseDetails = () => {
                                 <Card>
                                     <Card.Img
                                         variant="top"
-                                        alt={course.name}
-                                        src={course.img}
+                                        alt={name}
+                                        src={img}
                                         style={{ height: "400px" }}
                                         className="img-fluid"
                                     />
