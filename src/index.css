@@ -4,16 +4,39 @@ body {
     box-sizing: border-box;
     background-color: #000 !important;
 }
-li{
-  list-style-type: none;
+li {
+    list-style-type: none;
+}
+h1,
+h2,
+h3,
+h4 {
+    margin-bottom: 0px;
 }
 a {
     text-decoration: none !important;
 }
 .navbar-nav .nav-link.active,
 .navbar-nav .show > .nav-link {
-    color: #1EB854 !important;
+    color: #1eb854 !important;
 }
-
-
-
+.swiper {
+    width: 100%;
+    height: 100%;
+}
+.swiper-horizontal > .swiper-pagination-bullets,
+.swiper-pagination-bullets.swiper-pagination-horizontal,
+.swiper-pagination-custom,
+.swiper-pagination-fraction {
+    bottom: -5px !important;
+}
+.swiper-pagination-bullet {
+    width: 16px !important;
+    height: 16px !important;
+    background: #fff !important;
+    opacity: 0.6 !important;
+}
+.swiper-pagination-bullet-active {
+    background: #fff !important;
+    opacity: 1 !important;
+}

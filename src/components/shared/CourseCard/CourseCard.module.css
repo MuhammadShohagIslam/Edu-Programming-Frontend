@@ -1,0 +1,26 @@
+.courseCard {
+    border: 5px solid #fff !important;
+    height: 450px !important;
+    position: relative;
+}
+.courseCardImage {
+    height: 220px;
+    width: 100%;
+    background-color: #191c36;
+}
+.courseCardButtonWrapper {
+    position: absolute;
+    bottom: 14px;
+}
+.courseCardButton{
+    background-color: #191c36 !important;
+    border: none !important;
+    font-size: 19px !important;
+    border: 1px solid #191c36 !important;
+    transition: all .4s !important;
+    font-weight: 500 !important;
+}
+.courseCardButton:hover{
+   background-color: transparent !important;
+   color: #191c36 !important;
+}

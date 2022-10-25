@@ -1,10 +1,13 @@
-import React from 'react';
+import React from "react";
+import classes from "./Footer.module.css";
 
 const Footer = () => {
     return (
-        <div>
-            
-        </div>
+        <footer className="py-4 bg-white">
+            <p className={`${classes.footerParagarph} text-center mb-0`}>
+                Copyright &#169; 2022 EduTech
+            </p>
+        </footer>
     );
 };
 
