@@ -1,6 +1,5 @@
 import { Toaster } from "react-hot-toast";
 import { Route, Routes } from "react-router-dom";
-import "./App.css";
 import Blog from "./pages/Blogs/Blogs";
 import Cart from "./pages/Cart/Cart";
 import CourseDetails from "./pages/Courses/CourseDetails/CourseDetails";
@@ -8,6 +7,7 @@ import Courses from "./pages/Courses/Courses";
 import FAQ from "./pages/FAQ/FAQ";
 import Home from "./pages/Home/Home";
 import Login from "./pages/Login/Login";
+import NotFound from "./pages/NotFound/NotFound";
 import Profile from "./pages/Profile/Profile";
 import Register from "./pages/Register/Register";
 
@@ -25,6 +25,7 @@ function App() {
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
                 <Route path="/profile" element={<Profile />} />
+                <Route path="*" element={<NotFound/>} />
             </Routes>
         </>
     );

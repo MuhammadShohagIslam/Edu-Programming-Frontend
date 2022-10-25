@@ -1,7 +1,6 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import CourseCard from "../../components/shared/CourseCard/CourseCard";
-import CourseCards from "../../components/shared/CourseCards/CourseCards";
 import LeftSideBar from "../../components/shared/LeftSideBar/LeftSideBar";
 import useFetch from "../../hooks/useFetch";
 import Layout from "../../layout/Layout";

@@ -1,3 +1,7 @@
+html,
+body {
+    height: 100% !important;
+}
 body {
     margin: 0;
     padding: 0;
@@ -7,8 +11,12 @@ body {
 div#root {
     height: 100% !important;
 }
+a {
+    text-decoration: none !important;
+}
+
 main {
-    height: 100% !important;
+    min-height: 100% !important;
     position: relative !important;
 }
 li {
@@ -47,10 +55,18 @@ a {
     background: #fff !important;
     opacity: 1 !important;
 }
+.nav-link {
+    color: #000 !important;
+}
 footer {
     position: absolute;
     width: 100%;
 }
-.nav-link {
+.accordion-button:not(.collapsed) {
     color: #000 !important;
+    background-color: transparent !important;
+    box-shadow: 0 0 #fff !important;
+}
+.accordion-button:focus {
+    box-shadow: 0 0 #fff !important;
 }

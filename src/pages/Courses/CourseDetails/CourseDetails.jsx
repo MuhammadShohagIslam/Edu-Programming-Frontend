@@ -41,7 +41,7 @@ const CourseDetails = () => {
                                             title="Overview"
                                         >
                                             <ListGroup>
-                                                {overview.map((ov, index) => (
+                                                {overview?.map((ov, index) => (
                                                     <ListGroup.Item key={index}>
                                                         {ov}
                                                     </ListGroup.Item>
