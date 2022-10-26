@@ -1,0 +1,14 @@
+.lightModel {
+    position: relative;
+    right: 5px;
+    font-weight: 600;
+    color: #000;
+    top: 1px;
+}
+.DarkModel {
+    position: relative;
+    left: 12px;
+    font-weight: 600;
+    color: #fff;
+    top: 0.5px;
+}

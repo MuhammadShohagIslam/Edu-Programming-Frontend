@@ -1,5 +1,5 @@
 .navBar {
-    background-color: #191c36;
+    padding: 12px 0px !important;
 }
 .centerNavbar {
     width: 100%;
@@ -22,7 +22,6 @@
 .logOutIcon {
     display: flex;
     align-items: center;
-    margin-bottom: 8px;
     cursor: pointer;
 }
 .navItemMiddle {
