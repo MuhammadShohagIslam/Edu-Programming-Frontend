@@ -3,8 +3,19 @@ import { Container, Navbar, Nav, Figure } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 import classes from "./Header.module.css";
 import Logo from "../../../images/eduTech.png";
+import { useAuth } from "../../../contexts/AuthProvider/AuthProvider";
+import { AiOutlineLogout } from "react-icons/ai";
 
 const Header = () => {
+    const { user, logOut } = useAuth();
+
+    const handleLogOut = () => {
+        logOut()
+            .then(() => {})
+            .catch((error) => {
+                console.log(error);
+            });
+    };
     return (
         <>
             <Navbar
@@ -54,21 +65,47 @@ const Header = () => {
                                 </LinkContainer>
                             </div>
                             <div className="d-flex">
-                                <LinkContainer to="/login">
-                                    <Nav.Link className={classes.navLink}>
-                                        Login
-                                    </Nav.Link>
-                                </LinkContainer>
-                                <LinkContainer to="/profile">
-                                    <Nav.Link className={classes.navLink}>
-                                        Profile
-                                    </Nav.Link>
-                                </LinkContainer>
-                                <LinkContainer to="/register">
-                                    <Nav.Link className={classes.navLink}>
-                                        Register
-                                    </Nav.Link>
-                                </LinkContainer>
+                                {user ? (
+                                    <>
+                                        <LinkContainer to="/profile">
+                                            <Nav.Link
+                                                className={classes.navLink}
+                                            >
+                                                <Figure.Image
+                                                    width={35}
+                                                    height={35}
+                                                    alt="logo"
+                                                    roundedCircle
+                                                    src={user?.photoURL}
+                                                />
+                                            </Nav.Link>
+                                        </LinkContainer>
+                                        <span
+                                            onClick={handleLogOut}
+                                            className={classes.logOutIcon}
+                                        >
+                                            <AiOutlineLogout className="text-white fs-4" />
+                                        </span>
+                                    </>
+                                ) : (
+                                    <>
+                                        <LinkContainer to="/login">
+                                            <Nav.Link
+                                                className={classes.navLink}
+                                            >
+                                                Login
+                                            </Nav.Link>
+                                        </LinkContainer>
+
+                                        <LinkContainer to="/register">
+                                            <Nav.Link
+                                                className={classes.navLink}
+                                            >
+                                                Register
+                                            </Nav.Link>
+                                        </LinkContainer>
+                                    </>
+                                )}
                             </div>
                         </Nav>
                     </Navbar.Collapse>

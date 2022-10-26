@@ -2,9 +2,105 @@ import React from "react";
 import Layout from "../../layout/Layout";
 import { Form, Button, Container, Col, Row } from "react-bootstrap";
 import { FaGoogle, FaGithub } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "./../../contexts/AuthProvider/AuthProvider";
+import { GoogleAuthProvider, GithubAuthProvider } from "firebase/auth";
+import { toast } from "react-hot-toast";
 
 const Register = () => {
+    const {
+        createUser,
+        userProfileUpdate,
+        verifyEmail,
+        registerAndLoginWithProvider,
+        setLoading,
+    } = useAuth();
+
+    const googleProvider = new GoogleAuthProvider();
+    const githubProvider = new GithubAuthProvider();
+    const navigate = useNavigate();
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        const form = event.target;
+        const fullName = form.fullName.value;
+        const photoURL = form.photoURL.value;
+        const email = form.email.value;
+        const password = form.password.value;
+        // validation
+        if (!fullName) {
+            return toast.error("Please Enter Full Name!");
+        }
+        if (!photoURL) {
+            return toast.error("Please Enter Photo Url!");
+        }
+        if (!email) {
+            return toast.error("Please Enter Email!");
+        }
+        if (!password) {
+            return toast.error("Please Enter Password!");
+        }
+
+        createUser(email, password)
+            .then((result) => {
+                form.reset();
+                handleProfileUpdate(fullName, photoURL);
+                handleVerifyEmail();
+                if (result.user.emailVerified) {
+                    navigate("/");
+                } else {
+                    toast.success("Verify Your Email Address!");
+                    navigate("/register");
+                }
+            })
+            .catch((error) => {
+                toast.error(error);
+                console.log(error);
+            })
+            .finally(() => {
+                setLoading(false);
+            });
+    };
+
+    const handleProfileUpdate = (fullName, photoURL) => {
+        const profile = {
+            displayName: fullName,
+            photoURL,
+        };
+        userProfileUpdate(profile)
+            .then(() => {})
+            .catch((error) => {
+                toast.error(error);
+            });
+    };
+
+    const handleVerifyEmail = () => {
+        verifyEmail().then(() => {
+            toast.success(
+                "Sended Verify Like on in your Email. Verify Your Email!"
+            );
+        });
+    };
+
+    const handleSignUpWithProvider = (event, providerName) => {
+        event.preventDefault();
+        if (providerName === "google") {
+            popupForSignInProvider(googleProvider);
+        }
+        if (providerName === "github") {
+            popupForSignInProvider(githubProvider);
+        }
+    };
+
+    const popupForSignInProvider = (provider) => {
+        registerAndLoginWithProvider(provider)
+            .then((result) => {
+                navigate("/");
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    };
     return (
         <Layout>
             <Container className="my-5">
@@ -19,6 +115,9 @@ const Register = () => {
                                 className="fs-5 text-white border border-white d-flex justify-content-center"
                                 variant="outline-dark"
                                 size="lg"
+                                onClick={(e) =>
+                                    handleSignUpWithProvider(e, "google")
+                                }
                             >
                                 <div>
                                     <FaGoogle className="align-baseline mt-1  me-1 fs-4" />
@@ -29,6 +128,9 @@ const Register = () => {
                                 className="fs-5 text-white border border-white d-flex justify-content-center"
                                 variant="outline-dark"
                                 size="lg"
+                                onClick={(e) =>
+                                    handleSignUpWithProvider(e, "github")
+                                }
                             >
                                 <div>
                                     {" "}
@@ -38,37 +140,28 @@ const Register = () => {
                             </Button>
                         </div>
                         <h3 className="text-white text-center mt-2">Or</h3>
-                        <Form>
-                            <Form.Group
-                                className="mb-3"
-                                controlId="formBasicEmail"
-                            >
+                        <Form onSubmit={handleSubmit}>
+                            <Form.Group className="mb-3" controlId="fullName">
                                 <Form.Label className="text-white">
                                     FullName
                                 </Form.Label>
                                 <Form.Control
                                     type="text"
-                                    name="fullname"
+                                    name="fullName"
                                     placeholder="Enter Full Name"
                                 />
                             </Form.Group>
-                            <Form.Group
-                                className="mb-3"
-                                controlId="formBasicEmail"
-                            >
+                            <Form.Group className="mb-3" controlId="photoURL">
                                 <Form.Label className="text-white">
                                     PhotoURL
                                 </Form.Label>
                                 <Form.Control
                                     type="text"
-                                    name="PhotoURL"
+                                    name="photoURL"
                                     placeholder="Enter PhotoURL"
                                 />
                             </Form.Group>
-                            <Form.Group
-                                className="mb-3"
-                                controlId="formBasicEmail"
-                            >
+                            <Form.Group className="mb-3" controlId="email">
                                 <Form.Label className="text-white">
                                     Email address
                                 </Form.Label>
@@ -79,10 +172,7 @@ const Register = () => {
                                 />
                             </Form.Group>
 
-                            <Form.Group
-                                className="mb-3"
-                                controlId="formBasicPassword"
-                            >
+                            <Form.Group className="mb-3" controlId="password">
                                 <Form.Label className="text-white">
                                     Password
                                 </Form.Label>
