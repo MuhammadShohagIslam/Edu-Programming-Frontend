@@ -8,8 +8,10 @@ import FAQ from "./pages/FAQ/FAQ";
 import Home from "./pages/Home/Home";
 import Login from "./pages/Login/Login";
 import NotFound from "./pages/NotFound/NotFound";
+import PrivacyPolicy from "./pages/PrivacyPolicy/PrivacyPolicy";
 import Profile from "./pages/Profile/Profile";
 import Register from "./pages/Register/Register";
+import TermCondition from "./pages/TermCondition/TermCondition";
 
 function App() {
     return (
@@ -25,7 +27,9 @@ function App() {
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
                 <Route path="/profile" element={<Profile />} />
-                <Route path="*" element={<NotFound/>} />
+                <Route path="/term-condition" element={<TermCondition />} />
+                <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+                <Route path="*" element={<NotFound />} />
             </Routes>
         </>
     );

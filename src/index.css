@@ -13,6 +13,7 @@ div#root {
 }
 a {
     text-decoration: none !important;
+    color: #fff !important;
 }
 
 main {
@@ -33,7 +34,7 @@ a {
 }
 .navbar-nav .nav-link.active,
 .navbar-nav .show > .nav-link {
-    color: #1eb854 !important;
+    color: #41E0FD !important;
 }
 .swiper {
     width: 100%;
@@ -69,4 +70,8 @@ footer {
 }
 .accordion-button:focus {
     box-shadow: 0 0 #fff !important;
+}
+.form-check-input:checked {
+    background-color: #000 !important;
+    border-color: #fff !important;
 }

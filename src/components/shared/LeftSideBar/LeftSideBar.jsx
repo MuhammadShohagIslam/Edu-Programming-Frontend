@@ -5,7 +5,7 @@ import classes from "./LeftSideBar.module.css";
 
 const LeftSideBar = ({ courses }) => {
     return (
-        <Card className="rounded-0 py-3">
+        <Card className="rounded-0 py-3 bg-dark">
             <Card.Body>
                 <ul>
                     {courses.map((course, index) => (
@@ -14,7 +14,7 @@ const LeftSideBar = ({ courses }) => {
                             className={`mb-1 ${classes.leftSidebarItem}`}
                         >
                             <Link
-                                className="text-dark font-weight-bolder"
+                                className={`text-dark font-weight-bolder text-white ${classes.leftSidebarItemLink}`}
                                 to={`/courses/${course.id}`}
                             >{`${index + 1}. ${course.name}`}</Link>
                         </li>

@@ -1,5 +1,11 @@
-.leftSidebarItem{
+.leftSidebarItem {
     font-size: 18px;
     font-weight: 400;
     color: #000;
+}
+.leftSidebarItemLink {
+    transition: all 0.4s;
+}
+.leftSidebarItemLink:hover {
+    color: #41e0fd !important;
 }

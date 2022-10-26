@@ -1,7 +1,8 @@
 import React from "react";
-import { Container, Navbar, Nav } from "react-bootstrap";
+import { Container, Navbar, Nav, Figure } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 import classes from "./Header.module.css";
+import Logo from "../../../images/eduTech.png";
 
 const Header = () => {
     return (
@@ -15,12 +16,21 @@ const Header = () => {
                 <Container>
                     <LinkContainer to="/">
                         <Navbar.Brand className={classes.logo}>
+                            <Figure.Image
+                                width={30}
+                                height={30}
+                                alt="logo"
+                                roundedCircle
+                                src={Logo}
+                            />
                             EduTech
                         </Navbar.Brand>
                     </LinkContainer>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
-                        <Nav className={`${classes.centerNavbar} d-flex justify-content-between`}>
+                        <Nav
+                            className={`${classes.centerNavbar} d-flex justify-content-between`}
+                        >
                             <div className="d-flex">
                                 <LinkContainer to="/">
                                     <Nav.Link className={classes.navLink}>
