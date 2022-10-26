@@ -12,6 +12,7 @@ import classes from "./Header.module.css";
 import Logo from "../../../images/eduTech.png";
 import { useAuth } from "../../../contexts/AuthProvider/AuthProvider";
 import { AiOutlineLogout } from "react-icons/ai";
+import { FaUserAlt } from "react-icons/fa";
 
 const Header = () => {
     const { user, logOut } = useAuth();
@@ -78,24 +79,36 @@ const Header = () => {
                                             <Nav.Link
                                                 className={classes.navLink}
                                             >
-                                                <OverlayTrigger
-                                                    placement="left"
-                                                    overlay={
-                                                        <Tooltip
-                                                            id={`tooltip-left`}
-                                                        >
-                                                            {user?.displayName}
-                                                        </Tooltip>
-                                                    }
-                                                >
-                                                    <Figure.Image
-                                                        width={35}
-                                                        height={35}
-                                                        alt="profile"
-                                                        roundedCircle
-                                                        src={user?.photoURL}
-                                                    />
-                                                </OverlayTrigger>
+                                                {user?.photoURL ? (
+                                                    <OverlayTrigger
+                                                        placement="left"
+                                                        overlay={
+                                                            <Tooltip
+                                                                id={`tooltip-left`}
+                                                            >
+                                                                {
+                                                                    user?.displayName
+                                                                }
+                                                            </Tooltip>
+                                                        }
+                                                    >
+                                                        <Figure.Image
+                                                            width={35}
+                                                            height={35}
+                                                            alt="profile"
+                                                            roundedCircle
+                                                            src={user?.photoURL}
+                                                        />
+                                                    </OverlayTrigger>
+                                                ) : (
+                                                    <span
+                                                        className={
+                                                            classes.logOutIcon
+                                                        }
+                                                    >
+                                                        <FaUserAlt className="text-white fs-5" />
+                                                    </span>
+                                                )}
                                             </Nav.Link>
                                         </LinkContainer>
                                         <span

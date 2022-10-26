@@ -32,14 +32,12 @@ const Register = () => {
         if (!fullName) {
             return toast.error("Please Enter Full Name!");
         }
-        if (!photoURL) {
-            return toast.error("Please Enter Photo Url!");
-        }
         if (!email) {
             return toast.error("Please Enter Email!");
         }
-        if (!password) {
-            return toast.error("Please Enter Password!");
+        console.log(password.length)
+        if (password.length <= 5) {
+            return toast.error("Please Enter Valid Password!");
         }
 
         createUser(email, password)
@@ -72,7 +70,8 @@ const Register = () => {
             .then(() => {})
             .catch((error) => {
                 toast.error(error.message);
-            });
+            })
+
     };
 
     const handleVerifyEmail = () => {
@@ -96,6 +95,8 @@ const Register = () => {
             })
             .catch((error) => {
                 toast.error(error?.message);
+            }).finally(()=>{
+                setLoading(false)
             });
     };
 

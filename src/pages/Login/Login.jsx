@@ -18,7 +18,7 @@ const Login = () => {
     const githubProvider = new GithubAuthProvider();
     const navigate = useNavigate();
     const location = useLocation();
-    console.log(location)
+    console.log(location);
     const from = location.state?.from?.pathname || "/";
 
     const handleSubmit = (event) => {
@@ -26,7 +26,6 @@ const Login = () => {
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
-
         // validation
         if (!email) {
             return toast.error("Please Enter Email!");
@@ -34,7 +33,6 @@ const Login = () => {
         if (!password) {
             return toast.error("Please Enter Password!");
         }
-
 
         loginWithEmailAndPassword(email, password)
             .then((result) => {
@@ -70,6 +68,9 @@ const Login = () => {
             })
             .catch((error) => {
                 toast.error(error.message);
+            })
+            .finally(() => {
+                setLoading(false);
             });
     };
     return (

@@ -13,7 +13,6 @@ import Profile from "./pages/Profile/Profile";
 import Register from "./pages/Register/Register";
 import TermCondition from "./pages/TermCondition/TermCondition";
 import PrivateRouter from "./routes/PrivateRouter/PrivateRouter";
-import PublicRouter from "./routes/PublicRouter/PublicRouter";
 
 function App() {
     return (
@@ -33,22 +32,8 @@ function App() {
                 />
                 <Route path="/blog" element={<Blog />} />
                 <Route path="/faq" element={<FAQ />} />
-                <Route
-                    path="/login"
-                    element={
-                        <PublicRouter>
-                            <Login />
-                        </PublicRouter>
-                    }
-                />
-                <Route
-                    path="/register"
-                    element={
-                        <PublicRouter>
-                            <Register />
-                        </PublicRouter>
-                    }
-                />
+                <Route path="/login" element={<Login />} />
+                <Route path="/register" element={<Register />} />
                 <Route path="/profile" element={<Profile />} />
                 <Route path="/term-condition" element={<TermCondition />} />
                 <Route path="/privacy-policy" element={<PrivacyPolicy />} />

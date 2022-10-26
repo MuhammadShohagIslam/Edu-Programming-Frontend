@@ -3,6 +3,7 @@ import Layout from "../../layout/Layout";
 import { Form, Button, Container, Col, Row, Figure } from "react-bootstrap";
 import { useAuth } from "./../../contexts/AuthProvider/AuthProvider";
 import { toast } from "react-hot-toast";
+import { FaUserAlt } from "react-icons/fa";
 
 const Profile = () => {
     const { user, setLoading, userProfileUpdate } = useAuth();
@@ -16,9 +17,6 @@ const Profile = () => {
         // validation
         if (!fullName) {
             return toast.error("Please Enter Full Name!");
-        }
-        if (!photoURL) {
-            return toast.error("Please Enter Photo Url!");
         }
 
         const profile = {
@@ -43,13 +41,17 @@ const Profile = () => {
                 <Row>
                     <Col lg={7} className="m-auto">
                         <Figure className="text-center w-100">
-                            <Figure.Image
+                            {user?.photoURL ? (
+                                <Figure.Image
                                 width={100}
                                 height={100}
                                 alt="profile"
                                 roundedCircle
                                 src={`${user?.photoURL}`}
                             />
+                            ):(
+                                <FaUserAlt className="text-white fs-1"/>
+                            )}
                         </Figure>
                         <Form onSubmit={handleUserProfileUpdate}>
                             <Form.Group
