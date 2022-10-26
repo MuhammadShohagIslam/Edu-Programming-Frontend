@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Layout from "../../layout/Layout";
 import { Form, Button, Container, Col, Row } from "react-bootstrap";
 import { FaGoogle, FaGithub } from "react-icons/fa";
@@ -8,6 +8,7 @@ import { GoogleAuthProvider, GithubAuthProvider } from "firebase/auth";
 import { toast } from "react-hot-toast";
 
 const Register = () => {
+    const [accepted, setAccepted] = useState(false);
     const {
         createUser,
         userProfileUpdate,
@@ -49,13 +50,13 @@ const Register = () => {
                 if (result.user.emailVerified) {
                     navigate("/");
                 } else {
-                    toast.success("Verify Your Email Address!");
-                    navigate("/register");
+                    toast.success(
+                        "Sended Verify Link on in your Email. Verify Your Email!"
+                    );
                 }
             })
             .catch((error) => {
-                toast.error(error);
-                console.log(error);
+                toast.error(error.message.split("Firebase: ").join(""));
             })
             .finally(() => {
                 setLoading(false);
@@ -70,16 +71,12 @@ const Register = () => {
         userProfileUpdate(profile)
             .then(() => {})
             .catch((error) => {
-                toast.error(error);
+                toast.error(error.message);
             });
     };
 
     const handleVerifyEmail = () => {
-        verifyEmail().then(() => {
-            toast.success(
-                "Sended Verify Like on in your Email. Verify Your Email!"
-            );
-        });
+        verifyEmail().then(() => {});
     };
 
     const handleSignUpWithProvider = (event, providerName) => {
@@ -98,9 +95,10 @@ const Register = () => {
                 navigate("/");
             })
             .catch((error) => {
-                console.log(error);
+                toast.error(error?.message);
             });
     };
+
     return (
         <Layout>
             <Container className="my-5">
@@ -189,6 +187,9 @@ const Register = () => {
                                 <Form.Check
                                     className="text-white"
                                     type="checkbox"
+                                    onClick={(e) =>
+                                        setAccepted(e.target.checked)
+                                    }
                                     label={
                                         <>
                                             By Register, you agree to our
@@ -214,6 +215,7 @@ const Register = () => {
                                 className="text-white border border-white"
                                 variant="outline-dark"
                                 type="submit"
+                                disabled={!accepted}
                             >
                                 Register
                             </Button>

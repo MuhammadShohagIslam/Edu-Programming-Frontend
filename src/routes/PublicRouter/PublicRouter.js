@@ -3,10 +3,10 @@ import { Spinner } from "react-bootstrap";
 import { Navigate, useLocation } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthProvider/AuthProvider";
 
-const PrivateRouter = ({ children }) => {
+const PublicRouter = ({ children }) => {
     const { user, loading } = useAuth();
     const location = useLocation();
-    console.log("private");
+    console.log("public");
 
     if (loading) {
         return (
@@ -15,11 +15,11 @@ const PrivateRouter = ({ children }) => {
             </div>
         );
     }
-    if (user) {
+    if (!user) {
         return children;
     }
 
-    return <Navigate to="/login" state={{ from: location }} />;
+    return <Navigate to="/" state={{ from: location }} />;
 };
 
-export default PrivateRouter;
+export default PublicRouter;

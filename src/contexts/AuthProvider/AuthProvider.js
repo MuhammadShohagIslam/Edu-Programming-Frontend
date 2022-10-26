@@ -24,8 +24,9 @@ const AuthProvider = ({ children }) => {
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-            console.log(currentUser)
-            setUser(currentUser);
+            if(currentUser === null || currentUser.emailVerified){
+                setUser(currentUser);
+            }
             setLoading(false);
         });
         return () => {
@@ -47,7 +48,7 @@ const AuthProvider = ({ children }) => {
         return sendEmailVerification(auth.currentUser);
     };
 
-    const registerWithEmailAndPassword = (email, password) => {
+    const loginWithEmailAndPassword = (email, password) => {
         setLoading(true);
         return signInWithEmailAndPassword(auth, email, password);
     };
@@ -64,13 +65,14 @@ const AuthProvider = ({ children }) => {
 
     const values = {
         user,
+        setUser,
         loading,
         setLoading,
         createUser,
         userProfileUpdate,
         verifyEmail,
         logOut,
-        registerWithEmailAndPassword,
+        loginWithEmailAndPassword,
         registerAndLoginWithProvider,
     };
 

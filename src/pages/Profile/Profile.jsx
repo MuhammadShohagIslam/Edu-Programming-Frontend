@@ -5,7 +5,7 @@ import { useAuth } from "./../../contexts/AuthProvider/AuthProvider";
 import { toast } from "react-hot-toast";
 
 const Profile = () => {
-    const { user, userProfileUpdate } = useAuth();
+    const { user, setLoading, userProfileUpdate } = useAuth();
 
     const handleUserProfileUpdate = (event) => {
         event.preventDefault();
@@ -26,11 +26,15 @@ const Profile = () => {
             photoURL: photoURL,
         };
         userProfileUpdate(profile)
-            .then(() => {
+            .then((result) => {
                 toast.success("Profile is Updated!");
             })
             .catch((error) => {
                 toast.error(error);
+                setLoading(false);
+            })
+            .finally(() => {
+                setLoading(false);
             });
     };
     return (

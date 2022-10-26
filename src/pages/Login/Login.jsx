@@ -10,7 +10,7 @@ import { toast } from "react-hot-toast";
 
 const Login = () => {
     const {
-        registerWithEmailAndPassword,
+        loginWithEmailAndPassword,
         registerAndLoginWithProvider,
         setLoading,
     } = useAuth();
@@ -18,6 +18,7 @@ const Login = () => {
     const githubProvider = new GithubAuthProvider();
     const navigate = useNavigate();
     const location = useLocation();
+    console.log(location)
     const from = location.state?.from?.pathname || "/";
 
     const handleSubmit = (event) => {
@@ -26,7 +27,16 @@ const Login = () => {
         const email = form.email.value;
         const password = form.password.value;
 
-        registerWithEmailAndPassword(email, password)
+        // validation
+        if (!email) {
+            return toast.error("Please Enter Email!");
+        }
+        if (!password) {
+            return toast.error("Please Enter Password!");
+        }
+
+
+        loginWithEmailAndPassword(email, password)
             .then((result) => {
                 if (result.user.emailVerified) {
                     form.reset();
@@ -34,11 +44,10 @@ const Login = () => {
                     navigate(from, { replace: true });
                 } else {
                     toast.success("Verify Your Email Address!");
-                    navigate("/login");
                 }
             })
             .catch((error) => {
-                toast.error(error);
+                toast.error(error.message.split("Firebase: ").join(""));
             })
             .finally(() => {
                 setLoading(false);
@@ -60,7 +69,7 @@ const Login = () => {
                 navigate(from, { replace: true });
             })
             .catch((error) => {
-                toast.error(error);
+                toast.error(error.message);
             });
     };
     return (
@@ -108,10 +117,11 @@ const Login = () => {
                                 controlId="formBasicEmail"
                             >
                                 <Form.Label className="text-white">
-                                    Email address
+                                    Email Address
                                 </Form.Label>
                                 <Form.Control
                                     type="email"
+                                    name="email"
                                     required
                                     placeholder="Enter email"
                                 />
@@ -127,6 +137,7 @@ const Login = () => {
                                 <Form.Control
                                     type="password"
                                     required
+                                    name="password"
                                     placeholder="Password"
                                 />
                             </Form.Group>
