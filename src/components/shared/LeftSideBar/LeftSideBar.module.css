@@ -1,11 +1,33 @@
 .leftSidebarItem {
-    font-size: 18px;
+    font-size: 17px;
     font-weight: 400;
     color: #000;
+}
+.LeftSideBarList{
+    padding: 10px 20px;
 }
 .leftSidebarItemLink {
     transition: all 0.4s;
 }
 .leftSidebarItemLink:hover {
     color: #41e0fd !important;
+}
+
+
+@media only screen and (max-width: 767px) {
+    .LeftSideBarList{
+        padding: 7px 9px;
+    } 
+    .leftSidebarItem {
+        font-size: 17px;
+    }
+}
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
+    .courseCard {
+        height: 497px !important;
+        position: relative;
+    }
+    .courseCardButtonWrapper {
+        bottom: 14px;
+    }
 }

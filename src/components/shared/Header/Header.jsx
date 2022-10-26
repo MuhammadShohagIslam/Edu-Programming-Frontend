@@ -50,7 +50,7 @@ const Header = () => {
                         <Nav
                             className={`${classes.centerNavbar} d-flex justify-content-between`}
                         >
-                            <div className="d-flex">
+                            <div className={classes.navItemMiddle}>
                                 <LinkContainer to="/">
                                     <Nav.Link className={classes.navLink}>
                                         Home

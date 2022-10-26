@@ -42,7 +42,7 @@ const CourseDetails = () => {
                         <Row>
                             <Col lg={8} md={6} sm={12} className="mb-4">
                                 <Card className="p-4">
-                                    <Card.Title> {name}</Card.Title>
+                                    <Card.Title className="mb-3"> {name}</Card.Title>
                                     <Tabs
                                         defaultActiveKey="overview"
                                         id="uncontrolled-tab-example"

@@ -34,7 +34,7 @@ a {
 }
 .navbar-nav .nav-link.active,
 .navbar-nav .show > .nav-link {
-    color: #41E0FD !important;
+    color: #41e0fd !important;
 }
 .swiper {
     width: 100%;
@@ -74,4 +74,7 @@ footer {
 .form-check-input:checked {
     background-color: #000 !important;
     border-color: #fff !important;
+}
+.text-justify {
+    text-align: justify;
 }

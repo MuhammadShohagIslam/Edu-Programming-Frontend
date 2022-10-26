@@ -6,7 +6,7 @@ import Pdf from "react-to-pdf";
 
 const Jumbotron = ({ name, intro, pdfRef }) => {
     return (
-        <section className={classes.jumbotron}>
+        <section className={intro ? `${classes.jumbotron} ${classes.jumbotronIntro}` : classes.jumbotron}>
             <Container className={classes.jumbotronWrapper}>
                 <div className="headerInfo">
                     <h2 className={classes.jumbotronTitle}>

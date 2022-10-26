@@ -24,3 +24,26 @@
    background-color: transparent !important;
    color: #191c36 !important;
 }
+
+@media only screen and (max-width: 767px) {
+    .courseCard {
+        height: 460px !important;
+        position: relative;
+    }
+    .courseCardButtonWrapper {
+        bottom: 18px;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    
+}
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
+    .courseCard {
+        height: 497px !important;
+        position: relative;
+    }
+    .courseCardButtonWrapper {
+        bottom: 14px;
+    }
+}

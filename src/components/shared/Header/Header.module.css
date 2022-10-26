@@ -2,9 +2,9 @@
     background-color: #191c36;
 }
 .centerNavbar {
-    width:100%;
+    width: 100%;
     margin-left: 35%;
-  }
+}
 .logo {
     font-size: 28px !important;
     color: #ffff !important;
@@ -17,24 +17,44 @@
     transition: all 0.4s;
 }
 .navLink:hover {
-    color: #41E0FD !important;
+    color: #41e0fd !important;
 }
-.logOutIcon{
+.logOutIcon {
     display: flex;
     align-items: center;
     margin-bottom: 8px;
     cursor: pointer;
+}
+.navItemMiddle {
+    display: flex;
 }
 
 @media only screen and (max-width: 767px) {
     .navLink {
         font-size: 18px !important;
     }
+    .navItemMiddle {
+        display: block;
+    }
+    .centerNavbar {
+        margin-left: 2%;
+    }
+    .logOutIcon {
+        margin-left: 6px;
+    }
 }
 
-/* Start Medium Devices */
 @media only screen and (min-width: 768px) and (max-width: 991px) {
     .navLink {
         font-size: 18px !important;
     }
-} /* End Medium Devices */
+    .navItemMiddle {
+        display: block;
+    }
+    .centerNavbar {
+        margin-left: 2%;
+    }
+    .logOutIcon {
+        margin-left: 6px;
+    }
+}
