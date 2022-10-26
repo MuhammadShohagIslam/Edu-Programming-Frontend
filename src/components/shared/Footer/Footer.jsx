@@ -58,7 +58,7 @@ const Footer = () => {
                         </ul>
                     </Col>
                 </Row>
-                <hr class="border border-white border-1 opacity-50 mt-2"></hr>
+                <hr className="border border-white border-1 opacity-50 mt-2"></hr>
                 <p className={`${classes.footerParagarph} text-center mb-0`}>
                     Copyright &#169; 2022 EduTech
                 </p>

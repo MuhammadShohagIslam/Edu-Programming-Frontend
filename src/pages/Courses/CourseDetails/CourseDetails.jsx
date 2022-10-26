@@ -15,6 +15,7 @@ import Layout from "../../../layout/Layout";
 import CustomButton from "../../../components/UI/CustomButton/CustomButton";
 
 const CourseDetails = () => {
+    const pdfRef = React.createRef();
     const { id } = useParams();
     const { data, loading } = useFetch("http://localhost:5000/courses", id);
 
@@ -24,9 +25,14 @@ const CourseDetails = () => {
             {loading ? (
                 <h3 className="text-white text-center">Loading...</h3>
             ) : (
-                <>
-                    <Jumbotron name={name} intro={intro} />
-                    <Container className="mt-5">
+                <div>
+                    <Jumbotron
+                        className="mt-5"
+                        name={name}
+                        intro={intro}
+                        pdfRef={pdfRef}
+                    />
+                    <Container ref={pdfRef}>
                         <Row>
                             <Col lg={8} md={6} sm={12} className="mb-4">
                                 <Card className="p-4">
@@ -71,7 +77,7 @@ const CourseDetails = () => {
                             </Col>
                         </Row>
                     </Container>
-                </>
+                </div>
             )}
         </Layout>
     );

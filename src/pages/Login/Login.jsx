@@ -72,7 +72,7 @@ const Login = () => {
                             >
                                 Login
                             </Button>
-                            <hr class="border border-white border-1 opacity-50 mt-5"></hr>
+                            <hr className="border border-white border-1 opacity-50 mt-5"></hr>
                             <p className="text-white text-center">
                                 Don't have an account?{" "}
                                 <Link
