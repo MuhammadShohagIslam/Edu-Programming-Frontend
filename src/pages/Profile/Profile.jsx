@@ -1,11 +1,38 @@
 import React from "react";
 import Layout from "../../layout/Layout";
 import { Form, Button, Container, Col, Row, Figure } from "react-bootstrap";
-import { useAuth } from './../../contexts/AuthProvider/AuthProvider';
-
+import { useAuth } from "./../../contexts/AuthProvider/AuthProvider";
+import { toast } from "react-hot-toast";
 
 const Profile = () => {
-    const {user} = useAuth();
+    const { user, userProfileUpdate } = useAuth();
+
+    const handleUserProfileUpdate = (event) => {
+        event.preventDefault();
+        const form = event.target;
+        const fullName = form.fullName.value;
+        const photoURL = form.photoURL.value;
+
+        // validation
+        if (!fullName) {
+            return toast.error("Please Enter Full Name!");
+        }
+        if (!photoURL) {
+            return toast.error("Please Enter Photo Url!");
+        }
+
+        const profile = {
+            displayName: fullName,
+            photoURL: photoURL,
+        };
+        userProfileUpdate(profile)
+            .then(() => {
+                toast.success("Profile is Updated!");
+            })
+            .catch((error) => {
+                toast.error(error);
+            });
+    };
     return (
         <Layout>
             <Container className="my-5">
@@ -20,35 +47,7 @@ const Profile = () => {
                                 src={`${user?.photoURL}`}
                             />
                         </Figure>
-                        <Form>
-                            <Form.Group
-                                className="mb-3"
-                                controlId="formBasicEmail"
-                            >
-                                <Form.Label className="text-white">
-                                    FullName
-                                </Form.Label>
-                                <Form.Control
-                                    type="text"
-                                    name="fullname"
-                                    defaultValue={user?.displayName}
-                                    placeholder="Enter Full Name"
-                                />
-                            </Form.Group>
-                            <Form.Group
-                                className="mb-3"
-                                controlId="formBasicEmail"
-                            >
-                                <Form.Label className="text-white">
-                                    PhotoURL
-                                </Form.Label>
-                                <Form.Control
-                                    type="text"
-                                    name="PhotoURL"
-                                    defaultValue={user?.photoURL}
-                                    placeholder="Enter PhotoURL"
-                                />
-                            </Form.Group>
+                        <Form onSubmit={handleUserProfileUpdate}>
                             <Form.Group
                                 className="mb-3"
                                 controlId="formBasicEmail"
@@ -62,6 +61,36 @@ const Profile = () => {
                                     disabled
                                     defaultValue={user?.email}
                                     placeholder="Enter Email"
+                                />
+                            </Form.Group>
+
+                            <Form.Group
+                                className="mb-3"
+                                controlId="formBasicEmail"
+                            >
+                                <Form.Label className="text-white">
+                                    FullName
+                                </Form.Label>
+                                <Form.Control
+                                    type="text"
+                                    name="fullName"
+                                    defaultValue={user?.displayName}
+                                    placeholder="Enter Full Name"
+                                />
+                            </Form.Group>
+
+                            <Form.Group
+                                className="mb-3"
+                                controlId="formBasicEmail"
+                            >
+                                <Form.Label className="text-white">
+                                    PhotoURL
+                                </Form.Label>
+                                <Form.Control
+                                    type="text"
+                                    name="photoURL"
+                                    defaultValue={user?.photoURL}
+                                    placeholder="Enter PhotoURL"
                                 />
                             </Form.Group>
 

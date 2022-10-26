@@ -1,5 +1,12 @@
 import React from "react";
-import { Container, Navbar, Nav, Figure } from "react-bootstrap";
+import {
+    Container,
+    Navbar,
+    Nav,
+    Figure,
+    OverlayTrigger,
+    Tooltip,
+} from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 import classes from "./Header.module.css";
 import Logo from "../../../images/eduTech.png";
@@ -71,13 +78,24 @@ const Header = () => {
                                             <Nav.Link
                                                 className={classes.navLink}
                                             >
-                                                <Figure.Image
-                                                    width={35}
-                                                    height={35}
-                                                    alt="logo"
-                                                    roundedCircle
-                                                    src={user?.photoURL}
-                                                />
+                                                <OverlayTrigger
+                                                    placement="left"
+                                                    overlay={
+                                                        <Tooltip
+                                                            id={`tooltip-left`}
+                                                        >
+                                                            {user?.displayName}
+                                                        </Tooltip>
+                                                    }
+                                                >
+                                                    <Figure.Image
+                                                        width={35}
+                                                        height={35}
+                                                        alt="profile"
+                                                        roundedCircle
+                                                        src={user?.photoURL}
+                                                    />
+                                                </OverlayTrigger>
                                             </Nav.Link>
                                         </LinkContainer>
                                         <span
