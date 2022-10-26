@@ -1,6 +1,6 @@
 import React from "react";
 import CourseCard from "../CourseCard/CourseCard";
-import { Container, Row } from "react-bootstrap";
+import { Container, Row, Spinner } from "react-bootstrap";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper";
 
@@ -9,7 +9,12 @@ const CourseCards = ({ courses, loading }) => {
         <Container>
             <Row className="mb-5">
                 {loading ? (
-                    <h3 className="text-white text-center">Loading...</h3>
+                    <div
+                        style={{ height: "300px" }}
+                        className="d-flex justify-content-center align-items-center"
+                    >
+                        <Spinner animation="border" variant="info" />
+                    </div>
                 ) : (
                     <>
                         <Swiper

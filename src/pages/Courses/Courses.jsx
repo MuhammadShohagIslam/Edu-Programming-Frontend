@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Spinner } from "react-bootstrap";
 import CourseCard from "../../components/shared/CourseCard/CourseCard";
 import LeftSideBar from "../../components/shared/LeftSideBar/LeftSideBar";
 import useFetch from "../../hooks/useFetch";
@@ -18,9 +18,12 @@ const Courses = () => {
                     <Col lg={8}>
                         <Row>
                             {loading ? (
-                                <h3 className="text-white text-center">
-                                    Loading...
-                                </h3>
+                                <div className="d-flex h-100 justify-content-center align-items-center">
+                                    <Spinner
+                                        animation="border"
+                                        variant="info"
+                                    />
+                                </div>
                             ) : (
                                 <>
                                     {data.map((course) => (

@@ -12,6 +12,7 @@ import PrivacyPolicy from "./pages/PrivacyPolicy/PrivacyPolicy";
 import Profile from "./pages/Profile/Profile";
 import Register from "./pages/Register/Register";
 import TermCondition from "./pages/TermCondition/TermCondition";
+import PrivateRouter from "./routes/PrivateRouter/PrivateRouter";
 
 function App() {
     return (
@@ -21,7 +22,14 @@ function App() {
                 <Route path="/" element={<Home />} />
                 <Route path="/courses" element={<Courses />} />
                 <Route path="/courses/:id" element={<CourseDetails />} />
-                <Route path="/courses/cart/:id" element={<Cart />} />
+                <Route
+                    path="/courses/cart/:id"
+                    element={
+                        <PrivateRouter>
+                            <Cart />
+                        </PrivateRouter>
+                    }
+                />
                 <Route path="/blog" element={<Blog />} />
                 <Route path="/faq" element={<FAQ />} />
                 <Route path="/login" element={<Login />} />

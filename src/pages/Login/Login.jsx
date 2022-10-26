@@ -2,9 +2,67 @@ import React from "react";
 import Layout from "../../layout/Layout";
 import { Form, Button, Container, Col, Row } from "react-bootstrap";
 import { FaGoogle, FaGithub } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
+import { GoogleAuthProvider } from "firebase/auth";
+import { GithubAuthProvider } from "firebase/auth";
+import { useAuth } from "./../../contexts/AuthProvider/AuthProvider";
+import { toast } from "react-hot-toast";
 
 const Login = () => {
+    const {
+        registerWithEmailAndPassword,
+        registerAndLoginWithProvider,
+        setLoading,
+    } = useAuth();
+    const googleProvider = new GoogleAuthProvider();
+    const githubProvider = new GithubAuthProvider();
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+
+        registerWithEmailAndPassword(email, password)
+            .then((result) => {
+                if (result.user.emailVerified) {
+                    form.reset();
+                    toast.success("Login Successfully!");
+                    navigate(from, { replace: true });
+                } else {
+                    toast.success("Verify Your Email Address!");
+                    navigate("/login");
+                }
+            })
+            .catch((error) => {
+                toast.error(error);
+            })
+            .finally(() => {
+                setLoading(false);
+            });
+    };
+    const handleSignUpWithProvider = (event, providerName) => {
+        event.preventDefault();
+        if (providerName === "google") {
+            popupForSignInProvider(googleProvider);
+        }
+        if (providerName === "github") {
+            popupForSignInProvider(githubProvider);
+        }
+    };
+
+    const popupForSignInProvider = (provider) => {
+        registerAndLoginWithProvider(provider)
+            .then((result) => {
+                navigate(from, { replace: true });
+            })
+            .catch((error) => {
+                toast.error(error);
+            });
+    };
     return (
         <Layout>
             <Container className="my-5">
@@ -19,6 +77,9 @@ const Login = () => {
                                 className="fs-5 text-white border border-white d-flex justify-content-center"
                                 variant="outline-dark"
                                 size="lg"
+                                onClick={(e) =>
+                                    handleSignUpWithProvider(e, "google")
+                                }
                             >
                                 <div>
                                     <FaGoogle className="align-baseline mt-1  me-1 fs-4" />
@@ -29,6 +90,9 @@ const Login = () => {
                                 className="fs-5 text-white border border-white d-flex justify-content-center"
                                 variant="outline-dark"
                                 size="lg"
+                                onClick={(e) =>
+                                    handleSignUpWithProvider(e, "github")
+                                }
                             >
                                 <div>
                                     {" "}
@@ -38,7 +102,7 @@ const Login = () => {
                             </Button>
                         </div>
                         <h3 className="text-white text-center mt-2">Or</h3>
-                        <Form>
+                        <Form onSubmit={handleSubmit}>
                             <Form.Group
                                 className="mb-3"
                                 controlId="formBasicEmail"
@@ -48,6 +112,7 @@ const Login = () => {
                                 </Form.Label>
                                 <Form.Control
                                     type="email"
+                                    required
                                     placeholder="Enter email"
                                 />
                             </Form.Group>
@@ -61,6 +126,7 @@ const Login = () => {
                                 </Form.Label>
                                 <Form.Control
                                     type="password"
+                                    required
                                     placeholder="Password"
                                 />
                             </Form.Group>

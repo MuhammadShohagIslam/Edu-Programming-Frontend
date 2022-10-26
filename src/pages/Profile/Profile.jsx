@@ -1,9 +1,11 @@
 import React from "react";
 import Layout from "../../layout/Layout";
 import { Form, Button, Container, Col, Row, Figure } from "react-bootstrap";
+import { useAuth } from './../../contexts/AuthProvider/AuthProvider';
 
 
 const Profile = () => {
+    const {user} = useAuth();
     return (
         <Layout>
             <Container className="my-5">
@@ -15,7 +17,7 @@ const Profile = () => {
                                 height={100}
                                 alt="profile"
                                 roundedCircle
-                                src="https://img.freepik.com/premium-vector/man-avatar-profile-round-icon_24640-14044.jpg?w=2000"
+                                src={`${user?.photoURL}`}
                             />
                         </Figure>
                         <Form>
@@ -29,6 +31,7 @@ const Profile = () => {
                                 <Form.Control
                                     type="text"
                                     name="fullname"
+                                    defaultValue={user?.displayName}
                                     placeholder="Enter Full Name"
                                 />
                             </Form.Group>
@@ -42,6 +45,7 @@ const Profile = () => {
                                 <Form.Control
                                     type="text"
                                     name="PhotoURL"
+                                    defaultValue={user?.photoURL}
                                     placeholder="Enter PhotoURL"
                                 />
                             </Form.Group>
@@ -55,6 +59,8 @@ const Profile = () => {
                                 <Form.Control
                                     name="email"
                                     type="email"
+                                    disabled
+                                    defaultValue={user?.email}
                                     placeholder="Enter Email"
                                 />
                             </Form.Group>

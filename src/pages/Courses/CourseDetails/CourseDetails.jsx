@@ -7,6 +7,7 @@ import {
     Tabs,
     Tab,
     ListGroup,
+    Spinner,
 } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import Jumbotron from "../../../components/shared/Jumbotron/Jumbotron";
@@ -23,7 +24,12 @@ const CourseDetails = () => {
     return (
         <Layout>
             {loading ? (
-                <h3 className="text-white text-center">Loading...</h3>
+                <div
+                    style={{ height: "400px" }}
+                    className="d-flex justify-content-center align-items-center"
+                >
+                    <Spinner animation="border" variant="info" />
+                </div>
             ) : (
                 <div>
                     <Jumbotron

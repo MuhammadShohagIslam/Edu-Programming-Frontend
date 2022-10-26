@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Row } from "react-bootstrap";
+import { Container, Row, Spinner } from "react-bootstrap";
 import Blog from "../../components/shared/Blog/Blog";
 import useBlogFetch from "../../hooks/useBlogFetch";
 import Layout from "../../layout/Layout";
@@ -13,9 +13,12 @@ const Blogs = () => {
                 <Container>
                     <Row className="ms-0 me-0">
                         {loading ? (
-                            <h2 className="text-white text-center">
-                                Loading...
-                            </h2>
+                            <div
+                                style={{ height: "400px" }}
+                                className="d-flex justify-content-center align-items-center"
+                            >
+                                <Spinner animation="border" variant="info" />
+                            </div>
                         ) : (
                             <>
                                 {data.map((blog) => (
