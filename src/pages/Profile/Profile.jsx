@@ -37,7 +37,7 @@ const Profile = () => {
     };
     return (
         <Layout>
-            <Container className="my-5">
+            <Container className="py-5">
                 <Row>
                     <Col lg={7} className="m-auto">
                         <Figure className="text-center w-100">
