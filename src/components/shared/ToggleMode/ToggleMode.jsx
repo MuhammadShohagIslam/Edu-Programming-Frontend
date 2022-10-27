@@ -7,7 +7,7 @@ const ToggleMode = () => {
     const { theme, toggleTheme } = useTheme();
 
     return (
-        <label className="d-flex align-items-center me-3">
+        <label className="d-flex align-items-center me-lg-3 me-2">
             <Switch
                 offColor="#fff"
                 onColor="#000"

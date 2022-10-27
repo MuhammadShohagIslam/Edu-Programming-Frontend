@@ -21,9 +21,17 @@ const Blogs = () => {
                             </div>
                         ) : (
                             <>
-                                {data.map((blog) => (
-                                    <Blog key={blog.id} blog={blog} />
-                                ))}
+                                {data.length > 0 ? (
+                                    <>
+                                        {data.map((blog) => (
+                                            <Blog key={blog.id} blog={blog} />
+                                        ))}
+                                    </>
+                                ) : (
+                                    <h3 className="text-center text-white">
+                                        There is no blog post
+                                    </h3>
+                                )}
                             </>
                         )}
                     </Row>

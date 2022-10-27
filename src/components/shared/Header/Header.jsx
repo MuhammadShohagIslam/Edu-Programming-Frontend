@@ -43,7 +43,7 @@ const Header = () => {
                                 roundedCircle
                                 src={Logo}
                             />
-                            EduTech
+                            EduProgramming
                         </Navbar.Brand>
                     </LinkContainer>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -125,7 +125,7 @@ const Header = () => {
                                     <>
                                         <LinkContainer to="/login">
                                             <Nav.Link
-                                                className={classes.navLink}
+                                                className={`${classes.navLink} me-lg-0 me-2`}
                                             >
                                                 Login
                                             </Nav.Link>

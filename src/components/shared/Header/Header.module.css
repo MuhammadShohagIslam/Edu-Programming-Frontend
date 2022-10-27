@@ -29,6 +29,9 @@
 }
 
 @media only screen and (max-width: 767px) {
+    .logo {
+        font-size: 22px !important;
+    }
     .navLink {
         font-size: 18px !important;
     }
@@ -55,5 +58,10 @@
     }
     .logOutIcon {
         margin-left: 6px;
+    }
+}
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
+    .centerNavbar {
+        margin-left: 11%;
     }
 }

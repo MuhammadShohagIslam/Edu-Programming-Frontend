@@ -6,7 +6,6 @@ import { useAuth } from "../../contexts/AuthProvider/AuthProvider";
 const PrivateRouter = ({ children }) => {
     const { user, loading } = useAuth();
     const location = useLocation();
-    console.log("private");
 
     if (loading) {
         return (

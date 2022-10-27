@@ -39,11 +39,19 @@ const CourseCards = ({ courses, loading }) => {
                             }}
                             modules={[Pagination]}
                         >
-                            {courses.map((course) => (
-                                <SwiperSlide key={course.id}>
-                                    <CourseCard course={course} />
-                                </SwiperSlide>
-                            ))}
+                            {courses.length > 0 ? (
+                                <>
+                                    {courses.map((course) => (
+                                        <SwiperSlide key={course.id}>
+                                            <CourseCard course={course} />
+                                        </SwiperSlide>
+                                    ))}
+                                </>
+                            ) : (
+                                <h3 className="text-center text-white">
+                                    There is no course
+                                </h3>
+                            )}
                         </Swiper>
                     </>
                 )}

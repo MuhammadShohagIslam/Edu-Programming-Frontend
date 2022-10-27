@@ -10,10 +10,10 @@ const Home = () => {
 
     return (
         <Layout>
-            <Jumbotron name="World Class Online Training Course by EduTech" />
+            <Jumbotron name="World Class Online Training Course by  EduProgramming" />
             <SectionTitle
                 title="Course"
-                description="EduTech is an online learning and teaching marketplace with over 6 courses. Learn programming, marketing and more."
+                description="EduProgramming is an online learning and teaching marketplace with over 6 courses. Learn programming, marketing and more."
             />
             <CourseCards courses={data} loading={loading} />
         </Layout>

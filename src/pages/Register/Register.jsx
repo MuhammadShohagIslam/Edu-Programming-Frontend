@@ -142,7 +142,7 @@ const Register = () => {
                         <Form onSubmit={handleSubmit}>
                             <Form.Group className="mb-3" controlId="fullName">
                                 <Form.Label className="text-white">
-                                    FullName
+                                    Full Name
                                 </Form.Label>
                                 <Form.Control
                                     type="text"

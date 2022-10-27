@@ -38,7 +38,7 @@ const CourseDetails = () => {
                         intro={intro}
                         pdfRef={pdfRef}
                     />
-                    <Container ref={pdfRef}>
+                    <Container ref={pdfRef} className="mt-4">
                         <Row>
                             <Col lg={8} md={6} sm={12} className="mb-4">
                                 <Card className="p-4">

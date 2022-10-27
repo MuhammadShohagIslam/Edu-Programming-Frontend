@@ -26,13 +26,21 @@ const Courses = () => {
                                 </div>
                             ) : (
                                 <>
-                                    {data.map((course) => (
-                                        <CourseCard
-                                            key={course.id}
-                                            course={course}
-                                            isSlideShow={false}
-                                        />
-                                    ))}
+                                    {data.length > 0 ? (
+                                        <>
+                                            {data.map((course) => (
+                                                <CourseCard
+                                                    key={course.id}
+                                                    course={course}
+                                                    isSlideShow={false}
+                                                />
+                                            ))}
+                                        </>
+                                    ) : (
+                                        <h3 className="text-center text-white">
+                                            There is no course
+                                        </h3>
+                                    )}
                                 </>
                             )}
                         </Row>
