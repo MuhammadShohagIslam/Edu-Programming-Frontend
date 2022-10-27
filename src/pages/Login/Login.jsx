@@ -39,6 +39,7 @@ const Login = () => {
                 if (result.user.emailVerified) {
                     form.reset();
                     toast.success("Login Successfully!");
+                    setUser(result.user);
                     navigate(from, { replace: true });
                 } else {
                     toast.success("Verify Your Email Address!");

@@ -48,6 +48,7 @@ const Register = () => {
                 if (result.user.emailVerified) {
                     navigate("/");
                 } else {
+                    navigate("/login")
                     toast.success(
                         "Sended Verify Link on in your Email. Verify Your Email!"
                     );
