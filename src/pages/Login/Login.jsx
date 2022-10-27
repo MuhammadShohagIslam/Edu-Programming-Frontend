@@ -10,6 +10,7 @@ import { toast } from "react-hot-toast";
 
 const Login = () => {
     const {
+        setUser,
         loginWithEmailAndPassword,
         registerAndLoginWithProvider,
         setLoading,
@@ -63,6 +64,10 @@ const Login = () => {
     const popupForSignInProvider = (provider) => {
         registerAndLoginWithProvider(provider)
             .then((result) => {
+                if (provider.providerId === "github.com") {
+                    result.user.emailVerified = true;
+                    setUser(result.user);
+                }
                 navigate(from, { replace: true });
             })
             .catch((error) => {
