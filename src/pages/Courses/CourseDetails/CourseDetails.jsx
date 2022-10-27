@@ -1,24 +1,17 @@
 import React from "react";
 import {
-    Container,
-    Row,
-    Col,
-    Card,
-    Tabs,
-    Tab,
-    ListGroup,
-    Spinner,
+    Card, Col, Container, ListGroup, Row, Spinner, Tab, Tabs
 } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import Jumbotron from "../../../components/shared/Jumbotron/Jumbotron";
+import CustomButton from "../../../components/UI/CustomButton/CustomButton";
 import useFetch from "../../../hooks/useFetch";
 import Layout from "../../../layout/Layout";
-import CustomButton from "../../../components/UI/CustomButton/CustomButton";
 
 const CourseDetails = () => {
     const pdfRef = React.createRef();
     const { id } = useParams();
-    const { data, loading } = useFetch("http://localhost:5000/courses", id);
+    const { data, loading } = useFetch("https://course-server-delta.vercel.app/courses", id);
 
     const { img, name, description, intro, overview } = data;
     return (

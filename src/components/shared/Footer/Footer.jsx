@@ -9,9 +9,9 @@ const Footer = () => {
             <Container>
                 <Row>
                     <Col lg={6} md={6}>
-                        <h3>EduTech</h3>
+                        <h3>EduProgramming</h3>
                         <p>
-                            EduTech is an online learning and teaching
+                            EduProgramming is an online learning and teaching
                             marketplace with over 6 courses. Learn programming,
                             marketing and more.
                         </p>
@@ -60,7 +60,7 @@ const Footer = () => {
                 </Row>
                 <hr className="border border-white border-1 opacity-50 mt-2"></hr>
                 <p className={`${classes.footerParagarph} text-center mb-0`}>
-                    Copyright &#169; 2022 EduTech
+                    Copyright &#169; 2022 EduProgramming
                 </p>
             </Container>
         </footer>

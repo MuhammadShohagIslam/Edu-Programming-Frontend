@@ -1,12 +1,12 @@
 import React from "react";
-import { Container, Row, Col, Spinner } from "react-bootstrap";
+import { Col, Container, Row, Spinner } from "react-bootstrap";
 import CourseCard from "../../components/shared/CourseCard/CourseCard";
 import LeftSideBar from "../../components/shared/LeftSideBar/LeftSideBar";
 import useFetch from "../../hooks/useFetch";
 import Layout from "../../layout/Layout";
 
 const Courses = () => {
-    const { data, loading } = useFetch("http://localhost:5000/courses");
+    const { data, loading } = useFetch("https://course-server-delta.vercel.app/courses");
 
     return (
         <Layout>

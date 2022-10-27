@@ -35,7 +35,6 @@ const Register = () => {
         if (!email) {
             return toast.error("Please Enter Email!");
         }
-        console.log(password.length)
         if (password.length <= 5) {
             return toast.error("Please Enter Valid Password!");
         }
@@ -91,6 +90,7 @@ const Register = () => {
     const popupForSignInProvider = (provider) => {
         registerAndLoginWithProvider(provider)
             .then((result) => {
+                console.log(result);
                 navigate("/");
             })
             .catch((error) => {

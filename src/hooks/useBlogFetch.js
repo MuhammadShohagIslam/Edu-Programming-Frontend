@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react';
+import { useEffect, useState } from 'react';
 
 const useBlogFetch = () => {
     const [data, setData] = useState([]);
@@ -8,7 +8,7 @@ const useBlogFetch = () => {
         setLoading(true);
         const fetchBlog = async () => {
             try {
-                let response =  await fetch("http://localhost:5000/blogs");
+                let response =  await fetch("https://course-server-delta.vercel.app/blogs");
                 const data = await response.json();
                 setData(data);
                 setLoading(false);

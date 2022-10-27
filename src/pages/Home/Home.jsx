@@ -6,7 +6,7 @@ import useFetch from "../../hooks/useFetch";
 import Layout from "../../layout/Layout";
 
 const Home = () => {
-    const {data, loading} = useFetch("http://localhost:5000/courses");
+    const {data, loading} = useFetch("https://course-server-delta.vercel.app/courses");
 
     return (
         <Layout>

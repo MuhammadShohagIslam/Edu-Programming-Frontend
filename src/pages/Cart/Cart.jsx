@@ -1,14 +1,14 @@
 import React from "react";
-import Layout from "../../layout/Layout";
-import { useParams } from "react-router-dom";
-import useFetch from "./../../hooks/useFetch";
-import ReviewItems from "../../components/shared/ReviewItem/ReviewItems";
+import { Button, Col, Container, Row, Spinner } from "react-bootstrap";
 import toast from "react-hot-toast";
-import { Container, Row, Col, Button, Spinner } from "react-bootstrap";
+import { useParams } from "react-router-dom";
+import ReviewItems from "../../components/shared/ReviewItem/ReviewItems";
+import Layout from "../../layout/Layout";
+import useFetch from "./../../hooks/useFetch";
 
 const Cart = () => {
     const { id } = useParams();
-    const { data, loading } = useFetch("http://localhost:5000/courses", id);
+    const { data, loading } = useFetch("https://course-server-delta.vercel.app/courses", id);
     const handleAccessItem = () => {
         toast.success("Course Access Successfully!");
     };

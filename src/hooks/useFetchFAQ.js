@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react';
+import { useEffect, useState } from 'react';
 
 const useFetchFAQ = () => {
     const [data, setData] = useState([]);
@@ -8,7 +8,7 @@ const useFetchFAQ = () => {
         setLoading(true);
         const fetchFAQ = async () => {
             try {
-                let response =  await fetch("http://localhost:5000/faq");
+                let response =  await fetch("https://course-server-delta.vercel.app/faq");
                 const data = await response.json();
                 setData(data);
                 setLoading(false);
