@@ -10,6 +10,7 @@ import { toast } from "react-hot-toast";
 const Register = () => {
     const [accepted, setAccepted] = useState(false);
     const {
+        setUser,
         createUser,
         userProfileUpdate,
         verifyEmail,
@@ -69,8 +70,7 @@ const Register = () => {
             .then(() => {})
             .catch((error) => {
                 toast.error(error.message);
-            })
-
+            });
     };
 
     const handleVerifyEmail = () => {
@@ -90,13 +90,17 @@ const Register = () => {
     const popupForSignInProvider = (provider) => {
         registerAndLoginWithProvider(provider)
             .then((result) => {
-                console.log(result);
+                if (provider.providerId === "github.com") {
+                    result.user.emailVerified = true;
+                    setUser(result.user);
+                }
                 navigate("/");
             })
             .catch((error) => {
                 toast.error(error?.message);
-            }).finally(()=>{
-                setLoading(false)
+            })
+            .finally(() => {
+                setLoading(false);
             });
     };
 
