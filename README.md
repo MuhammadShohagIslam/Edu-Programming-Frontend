@@ -1,71 +1,80 @@
-# Getting Started with Create React App
+<h2 align="center">I am Muhammad Jhohirul Islam Shohag</h2>
+<p align="center">I am Backend Focus Full-Stack Developer</p>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Let's Talk About My EduProgramming Application
 
-## Available Scripts
+### EduProgramming Application Live: [https://edu-programming.firebaseapp.com/](https://edu-programming.firebaseapp.com/)
 
-In the project directory, you can run:
+### Description About My Project
 
-### `npm start`
+-   ### Home Page
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+<div align="center">
+    <img width="450" src="https://github.com/programming-hero-web-course1/b610-learning-platform-client-side-MuhammadShohagIslam/blob/main/preview/home.JPG">
+</div> 
+<p>On the home page, we can get the total courses with slider and a header(jumbotron)</p>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+-   ### Course Page
 
-### `npm test`
+<div align="center">
+    <img width="450" src="https://github.com/programming-hero-web-course1/b610-learning-platform-client-side-MuhammadShohagIslam/blob/main/preview/courses.JPG">
+</div> 
+<p>On the Courses, we can get the total Courses and the left sidebar where we can select your preferred courses</p>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+-   ### Course Details Page
 
-### `npm run build`
+<div align="center">
+    <img width="450" src="https://github.com/programming-hero-web-course1/b610-learning-platform-client-side-MuhammadShohagIslam/blob/main/preview/courseDetails.JPG">
+</div> 
+<p>On the Course Details page, We can get specific course details and we can get download course details with a pdf about which one we selected</p>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+-   ### Checkout Page
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<div align="center">
+    <img width="450" src="https://github.com/programming-hero-web-course1/b610-learning-platform-client-side-MuhammadShohagIslam/blob/main/preview/checkout.JPG">
+</div> 
+<p>On Checkout Page, It shows a details buying information and it's a private route without login person we can not access to checkout page</p>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+-   ### Blog Page
 
-### `npm run eject`
+<div align="center">
+    <img width="450" src="https://github.com/programming-hero-web-course1/b610-learning-platform-client-side-MuhammadShohagIslam/blob/main/preview/blog.JPG">
+</div> 
+<p>On the Blog page, we have blog section where we can read blog related technology</p>
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+-   ### FAQ Page
+<div align="center">
+    <img width="450" src="https://github.com/programming-hero-web-course1/b610-learning-platform-client-side-MuhammadShohagIslam/blob/main/preview/faq.JPG">
+</div> 
+<p>On the FAQ page, we can get an important answers about how does work this learning platform</p>
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+-   ### Profile Page
+<div align="center">
+    <img width="450" src="https://github.com/programming-hero-web-course1/b610-learning-platform-client-side-MuhammadShohagIslam/blob/main/preview/profile.JPG">
+</div> 
+<p>On the Profile page, we can get an information user profile</p>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+-   ### Register Page
+<div align="center">
+    <img width="450" src="https://github.com/programming-hero-web-course1/b610-learning-platform-client-side-MuhammadShohagIslam/blob/main/preview/register.JPG">
+</div> 
+<p>On the Register page, user can login with google, github and fullName, PhotoURL, email and password.Implemented error functionality with toast message</p>
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+-   ### Login Page
+<div align="center">
+    <img width="450" src="https://github.com/programming-hero-web-course1/b610-learning-platform-client-side-MuhammadShohagIslam/blob/main/preview/login.JPG">
+</div> 
+<p>On the Login page, user can login with google, github and email and password.Implemented error functionality with toast message</p>
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-"# b610-learning-platform-client-side-MuhammadShohagIslam" 
+# Let's See Which Technology use of our project
+- HTML
+- CSS
+- REACT
+- React-Router-Dom
+- React-Icons
+- React-Swiper
+- React-Bootstrap-Router
+- React-to-pdf
+- React-hot-toast
+- React-switch

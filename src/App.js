@@ -34,7 +34,14 @@ function App() {
                 <Route path="/faq" element={<FAQ />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
-                <Route path="/profile" element={<Profile />} />
+                <Route
+                    path="/profile"
+                    element={
+                        <PrivateRouter>
+                            <Profile />
+                        </PrivateRouter>
+                    }
+                />
                 <Route path="/term-condition" element={<TermCondition />} />
                 <Route path="/privacy-policy" element={<PrivacyPolicy />} />
                 <Route path="*" element={<NotFound />} />
